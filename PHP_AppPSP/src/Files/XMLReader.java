@@ -22,7 +22,8 @@ public class XMLReader {
             Document doc = dBuilder.parse(f);
             id = Integer.parseInt(doc.getElementsByTagName("id").item(0).getTextContent());
             d = new Date(Long.parseLong(doc.getElementsByTagName("date").item(0).getTextContent()));
-            NodeList nl = doc.getElementsByTagName("pictures");
+            Element e1 = (Element) doc.getElementsByTagName("pictures").item(0);
+            NodeList nl = e1.getElementsByTagName("picture");
             for (int i = 0;i < nl.getLength();i++) {
                 Element e = (Element) nl.item(i);
                 pictures.add(new Picture(Integer.parseInt(e.getElementsByTagName("id").item(0).getTextContent()), e.getElementsByTagName("name").item(0).getTextContent()));
