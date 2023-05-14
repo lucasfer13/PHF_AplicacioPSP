@@ -1,8 +1,7 @@
 <component name="libraryTable">
   <library name="commons-net-3.9.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/commons-net-3.9.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../../../../Pruebas/w3c-dom.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/DAM/DAM/Jars/commons-net-3.9.0-bin/commons-net-3.9.0/commons-net-3.9.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

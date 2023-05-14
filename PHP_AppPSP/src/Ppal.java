@@ -17,9 +17,9 @@ public class Ppal {
 		id = Integer.parseInt(args[0]);
 		init();
 		PicturesGuarderia pg = txt.txtToGuarderia(Constanes.RUTA_TXT + "/" + id + ".txt");
-		if (c.directoryExists(ftp, "/"+id)) {
+		if (c.directoryExists(ftp, "/public_html/"+id)) {
 			File f = new File(Constanes.RUTA_XML + "/" + id + ".xml");
-			c.downloadFile(ftp, "/"+id+"/version.xml", Constanes.RUTA_XML + "/" + id+".xml");
+			c.downloadFile(ftp, "/public_html/"+id+"/version.xml", Constanes.RUTA_XML + "/" + id+".xml");
 			deleteRemote(xml.xmlToGuarderia(new File(Constanes.RUTA_XML + "/" + id+".xml")));
 			xml.writeXML(f, pg.toXML());
 			insertRemote(pg, f);
@@ -39,12 +39,12 @@ public class Ppal {
 	private static void createRemote(PicturesGuarderia pg) {
 		File f = new File(Constanes.RUTA_XML + "/" + id + ".xml");
 		xml.writeXML(f, pg.toXML());
-		c.makeDirectory("/"+id, ftp);
+		c.makeDirectory("/public_html/"+id, ftp);
 		insertRemote(pg, f);
 	}
 
 	private static void insertRemote(PicturesGuarderia pg, File xml) {
-		c.pushFile(xml, ftp,"/"+id+"/version.xml");
+		c.pushFile(xml, ftp,"/public_html/"+id+"/version.xml");
 		for (Picture p : pg.getPictures()) {
 			c.pushFile(new File(Constanes.RUTA_IMATGES+"/"+id+"/"+p.getName()), ftp, "/"+id+"/"+p.getName());
 		}
@@ -52,7 +52,7 @@ public class Ppal {
 
 	private static void deleteRemote(PicturesGuarderia pg) {
 		for (Picture p : pg.getPictures()) {
-			c.deleteFile(ftp, "/"+id+"/"+p.getName());
+			c.deleteFile(ftp, "/public_html/"+id+"/"+p.getName());
 		}
 	}
 }

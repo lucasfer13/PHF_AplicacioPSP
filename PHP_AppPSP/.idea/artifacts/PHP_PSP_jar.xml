@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="PHP_PSP:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PHP_PSP_jar</output-path>
+    <root id="archive" name="PHP_AppPSP.jar">
+      <element id="module-output" name="PHP_AppPSP" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/DAM/DAM/Jars/commons-net-3.9.0-bin/commons-net-3.9.0/commons-net-3.9.0.jar" path-in-jar="/" />
+      <element id="library" level="project" name="commons-net-3.9.0" />
+    </root>
+  </artifact>
+</component>
